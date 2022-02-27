@@ -1,0 +1,6 @@
+com/mygdx/snake/LastPos.java
+ com.mygdx.snake.LastPos
+com/mygdx/snake/Snake.java
+ com.mygdx.snake.Snake
+ com.mygdx.snake.Snake$1
+ com.mygdx.snake.Snake$pDirection
