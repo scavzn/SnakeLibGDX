@@ -28,7 +28,7 @@ public class Snake extends ApplicationAdapter {
 	private Sound slam;
 	private final int WIDTH_TILES = 19;
 	private final int HEIGHT_TILES = 17;
-	private final int MAX_BODY_COUNT = 50; //crashes and max
+	private final int MAX_BODY_COUNT = 500; //crashes and max
 	private SpriteBatch batch;
 	private Texture headImg;
 	private Rectangle head;
