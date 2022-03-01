@@ -1,2 +1,0 @@
-com/mygdx/snake/desktop/DesktopLauncher.java
- com.mygdx.snake.desktop.DesktopLauncher
