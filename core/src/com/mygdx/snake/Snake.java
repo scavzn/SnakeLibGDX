@@ -142,6 +142,11 @@ public class Snake extends ApplicationAdapter {
 	public void randomizeApple() {
 		apple.x = MathUtils.round(MathUtils.random(0, (SPRITE_SIZE  * WIDTH_TILES ) - SPRITE_SIZE) / SPRITE_SIZE) * SPRITE_SIZE;
 		apple.y = MathUtils.round(MathUtils.random(0, (SPRITE_SIZE  * HEIGHT_TILES ) - SPRITE_SIZE) / SPRITE_SIZE) * SPRITE_SIZE;
+		for (int i = 0; i < lastHeadPos.size; i++) {
+			if ( lastHeadPos.get(i).x == apple.x  &&  lastHeadPos.get(i).y == apple.y ) {
+				randomizeApple();
+			}
+		}
 	}
 
 	@Override
@@ -189,21 +194,10 @@ public class Snake extends ApplicationAdapter {
 			if (pdirection != pdirection.LEFT) pdirection = pdirection.RIGHT;
 		}
 		if (head.x == apple.x && head.y == apple.y) {
-			boolean flagCheck = true;
-			while (flagCheck) {
-				flagCheck = false;
-				//lastHeadPos.addFirst(new LastPos(head.x, head.y));
+				randomizeApple();
 				snakeLength++;
 				scoreName = "score: " + snakeLength;
-				randomizeApple();
-				for (int i = 0; i < lastHeadPos.size; i++) {
-					if ( lastHeadPos.get(i).x == apple.x  &&  lastHeadPos.get(i).y == apple.y ) {
-						flagCheck = true;
-					}
-				}
 				crunch.play();
-
-			}
 		}
 		if (lastHeadPos.size > MAX_BODY_COUNT) {
 			lastHeadPos.removeLast();
